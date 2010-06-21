@@ -6,46 +6,19 @@ using System.Xml.Linq;
 
 namespace Solutionizing.Dynamic.Xml
 {
-    public class DXElement : DynamicObject
+    public class DXElement : DXContainer<XElement>
     {
-        private readonly XElement element;
-
         public DXElement(XElement element)
+            : base(element)
         {
-            this.element = element;
         }
 
-        public override IEnumerable<string> GetDynamicMemberNames()
+        protected override Func<XElement, object> GetConverterForType(Type type)
         {
-            return element == null ? Enumerable.Empty<string>() :
-                from e in element.Elements()
-                select e.Name.LocalName;
+            return converters.GetOrDefault(type);
         }
 
-        public override bool TryGetMember(GetMemberBinder binder, out object result)
-        {
-            result = element == null ? null : element.Element(binder.Name).AsDynamic();
-            return result != null;
-        }
-
-        public override bool TryConvert(ConvertBinder binder, out object result)
-        {
-            if (binder.Type.IsAssignableFrom(typeof(XElement)))
-            {
-                result = element;
-                return true;
-            }
-
-            var mapper = typeMap.GetOrDefault(binder.Type);
-
-            if (mapper == null)
-                return base.TryConvert(binder, out result);
-
-            result = mapper(element);
-            return true;
-        }
-
-        static Dictionary<Type, Func<XElement, object>> typeMap = new Dictionary<Type, Func<XElement, object>>
+        static Dictionary<Type, Func<XElement, object>> converters = new Dictionary<Type, Func<XElement, object>>
         {
             { typeof(DateTime), e => (DateTime)e },
             { typeof(DateTime?), e => (DateTime?)e },
