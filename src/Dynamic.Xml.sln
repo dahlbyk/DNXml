@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solutionizing.Dynamic.Xml", "Solutionizing.Dynamic.Xml\Solutionizing.Dynamic.Xml.csproj", "{E0B0CCA9-11AB-4AD1-9C1C-30156A562F91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0B0CCA9-11AB-4AD1-9C1C-30156A562F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B0CCA9-11AB-4AD1-9C1C-30156A562F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B0CCA9-11AB-4AD1-9C1C-30156A562F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B0CCA9-11AB-4AD1-9C1C-30156A562F91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
