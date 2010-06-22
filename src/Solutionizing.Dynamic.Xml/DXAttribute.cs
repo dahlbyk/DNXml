@@ -1,45 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
+using System.Text;
+using System.Dynamic;
 using System.Xml.Linq;
 
 namespace Solutionizing.Dynamic.Xml
 {
-    public class DXElement : DXContainer<XElement>
+    public class DXAttribute : DXObject<XAttribute>
     {
-        public DXElement(XElement element)
-            : base(element)
+        public DXAttribute(XAttribute attribute) : base(attribute)
         {
         }
 
-        public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
-        {
-            if (indexes.Length == 1)
-            {
-                result = GetAttribute(indexes[0]).AsDynamic();
-                return true;
-            }
-            return base.TryGetIndex(binder, indexes, out result);
-        }
-
-        XAttribute GetAttribute(object index)
-        {
-            if (index is string)
-                return inner.Attribute((string)index);
-
-            if (index is int)
-                return inner.Attributes().ElementAtOrDefault((int)index);
-
-            return null;
-        }
-
-        protected override Func<XElement, object> GetConverterForType(Type type)
+        protected override Func<XAttribute, object> GetConverterForType(Type type)
         {
             return converters.GetOrDefault(type);
         }
 
-        static Dictionary<Type, Func<XElement, object>> converters = new Dictionary<Type, Func<XElement, object>>
+        static Dictionary<Type, Func<XAttribute, object>> converters = new Dictionary<Type, Func<XAttribute, object>>
         {
             { typeof(DateTime), x => (DateTime)x },
             { typeof(DateTime?), x => (DateTime?)x },

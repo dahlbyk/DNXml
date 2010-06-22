@@ -15,6 +15,11 @@ namespace Solutionizing.Dynamic.Xml
             return new DXElement(@this);
         }
 
+        public static dynamic AsDynamic(this XAttribute @this)
+        {
+            return new DXAttribute(@this);
+        }
+
         public static TValue GetOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> @this, TKey key)
         {
             TValue value;
