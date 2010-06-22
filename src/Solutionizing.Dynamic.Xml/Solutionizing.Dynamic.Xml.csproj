@@ -43,6 +43,7 @@
     <Compile Include="DXDocument.cs" />
     <Compile Include="DXContainer.cs" />
     <Compile Include="DXElement.cs" />
+    <Compile Include="DXObject.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
