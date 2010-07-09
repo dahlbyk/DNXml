@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solutionizing.Dynamic.Xml", "Solutionizing.Dynamic.Xml\Solutionizing.Dynamic.Xml.csproj", "{E0B0CCA9-11AB-4AD1-9C1C-30156A562F91}"
 EndProject
 Global
